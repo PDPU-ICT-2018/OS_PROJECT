@@ -20,13 +20,13 @@ class Info extends StatelessWidget {
     if(pages.title == 'LRU PRA') {
       signal = 3;
     }
-    if(pages.title == 'Optimal PRA') {
+    if(pages.title == 'OPTIMAL PRA') {
       signal = 4;
     }
-    if(pages.title == 'Random PRA') {
+    if(pages.title == 'RANDOM PRA') {
       signal = 5;
     }
-    if(pages.title == 'BEST ALGORITHM FOR YOUR INPUT'){
+    if(pages.title == 'AUTO SELECT'){
       signal = 6;
     }
 
