@@ -8,6 +8,7 @@ class OSProject extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      
       title: 'OS_Project',
       home: LoadingPage(),
     );
