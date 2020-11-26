@@ -98,7 +98,7 @@ class _FIFOState extends State<FIFO> {
         rows.add(
           TableRow(
             children: <Widget> [
-              Text(toprint1.elementAt(click).elementAt(i).toString(), style: GoogleFonts.montserrat(fontSize: 25.0,color: Colors.red), textAlign: TextAlign.center,),
+              Text(toprint1.elementAt(click).elementAt(i).toString(), style: GoogleFonts.roboto(fontSize: 25.0,color: Colors.red), textAlign: TextAlign.center,),
             ]
           )
         );
