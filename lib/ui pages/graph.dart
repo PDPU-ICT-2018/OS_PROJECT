@@ -14,8 +14,8 @@ class GraphPage extends StatefulWidget {
 }
 
 class _graphpageState extends State<GraphPage> {
-  List <charts.Series<Belady, int>> beladysData;
-  List <charts.Series<Belady1, String>> _seriesData;
+  List<charts.Series<Belady, int>> beladysData;
+  List<charts.Series<Belady1, String>> _seriesData;
 
   generatedata() {
     var BeladyData = [
@@ -45,9 +45,10 @@ class _graphpageState extends State<GraphPage> {
     _seriesData.add(
       charts.Series(
         fillPatternFn: (_, __) => charts.FillPatternType.solid,
-        fillColorFn: (Belady1 B, _) => charts.ColorUtil.fromDartColor(Color(0xff990099)),
+        fillColorFn: (Belady1 B, _) =>
+            charts.ColorUtil.fromDartColor(Color(0xff990099)),
         id: 'BELADYS ANOMALY',
-        data:  BeladyData1,
+        data: BeladyData1,
         domainFn: (Belady1 B, _) => B.capacity,
         measureFn: (Belady1 B, _) => B.fault,
       ),
@@ -57,11 +58,10 @@ class _graphpageState extends State<GraphPage> {
   @override
   void initState() {
     super.initState();
-    beladysData = List <charts.Series<Belady, int>>();
-    _seriesData = List <charts.Series<Belady1, String>>();
+    beladysData = List<charts.Series<Belady, int>>();
+    _seriesData = List<charts.Series<Belady1, String>>();
     generatedata();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +80,13 @@ class _graphpageState extends State<GraphPage> {
                 Tab(icon: Icon(FontAwesomeIcons.chartBar)),
               ],
             ),
-            title: Text('GRAPHICAL REPRESENTATION', textAlign: TextAlign.center,),
+            title: Text('GRAPHICAL REPRESENTATION',
+                style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.normal))),
           ),
           body: TabBarView(
             children: [
@@ -90,8 +96,14 @@ class _graphpageState extends State<GraphPage> {
                   child: Center(
                     child: Column(
                       children: [
-                        Text('Bélády’s anomaly is the name given to the phenomenon where increasing the number of page frames results in an increase in the number of page faults for a given memory access pattern.This phenomenon is commonly experienced in FIFO ALGORITHM',
-                            style: GoogleFonts.montserrat(fontSize: 25.0, color: Colors.orange))
+                        Text(
+                            'Bélády’s anomaly is the name given to the phenomenon where increasing the number of page frames results in an increase in the number of page faults for a given memory access pattern.This phenomenon is commonly experienced in FIFO ALGORITHM',
+                            style: GoogleFonts.roboto(
+                                textStyle: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w400,
+                                    fontStyle: FontStyle.normal)))
                       ],
                     ),
                   ),
@@ -103,22 +115,27 @@ class _graphpageState extends State<GraphPage> {
                   child: Center(
                     child: Column(
                       children: <Widget>[
-                        Text("BELADY'S ANOMALY IN LINE GRAPH", style: GoogleFonts.montserrat(fontSize: 25.0, color: Colors.orange)),
+                        Text("BELADY'S ANOMALY IN LINE GRAPH",
+                            style: GoogleFonts.montserrat(
+                                fontSize: 25.0, color: Colors.orange)),
                         Expanded(
                           child: charts.LineChart(
                             beladysData,
-                            defaultRenderer: new charts.LineRendererConfig(includeArea: true, stacked: true),
+                            defaultRenderer: new charts.LineRendererConfig(
+                                includeArea: true, stacked: true),
                             animate: true,
                             animationDuration: Duration(seconds: 5),
                             behaviors: [
                               new charts.ChartTitle('FRAME CAPACITY',
-                                  behaviorPosition: charts.BehaviorPosition.bottom,
-                                  titleOutsideJustification: charts.OutsideJustification.middleDrawArea
-                              ),
+                                  behaviorPosition:
+                                      charts.BehaviorPosition.bottom,
+                                  titleOutsideJustification: charts
+                                      .OutsideJustification.middleDrawArea),
                               new charts.ChartTitle('PAGE FAULT',
-                                  behaviorPosition: charts.BehaviorPosition.start,
-                                  titleOutsideJustification: charts.OutsideJustification.middleDrawArea
-                              ),
+                                  behaviorPosition:
+                                      charts.BehaviorPosition.start,
+                                  titleOutsideJustification: charts
+                                      .OutsideJustification.middleDrawArea),
                             ],
                           ),
                         ),
@@ -133,7 +150,11 @@ class _graphpageState extends State<GraphPage> {
                   child: Center(
                     child: Column(
                       children: <Widget>[
-                        Text("BELADY'S ANOMALY IN BAR GRAPH",style: TextStyle(fontSize: 24.0,fontWeight: FontWeight.bold),),
+                        Text(
+                          "BELADY'S ANOMALY IN BAR GRAPH",
+                          style: TextStyle(
+                              fontSize: 24.0, fontWeight: FontWeight.bold),
+                        ),
                         Expanded(
                           child: charts.BarChart(
                             _seriesData,
@@ -155,14 +176,16 @@ class _graphpageState extends State<GraphPage> {
   }
 }
 
-class Belady{
+class Belady {
   int capacity;
   int fault;
+
   Belady(this.capacity, this.fault);
 }
 
-class Belady1{
+class Belady1 {
   String capacity;
   int fault;
+
   Belady1(this.capacity, this.fault);
 }
