@@ -220,6 +220,27 @@ class _LIFOState extends State<LIFO> {
                 ),
               ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget> [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(8, 20, 2, 8),
+                  child : Text('Hit Ratio : ', style: GoogleFonts.montserrat(fontSize: 20.0,color: Colors.green)),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(2, 20, 40, 8),
+                  child : Text((hit2_arr.elementAt(click)/hit2_arr.length).toStringAsFixed(2), style: GoogleFonts.montserrat(fontSize: 18.0,color: Colors.green)),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(10, 20, 2, 8),
+                  child : Text('Fault Ratio : ', style: GoogleFonts.montserrat(fontSize: 20.0,color: Colors.red)),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(2, 20, 8, 8),
+                  child : Text((fault2_arr.elementAt(click)/hit2_arr.length).toStringAsFixed(2), style: GoogleFonts.montserrat(fontSize: 18.0,color: Colors.red)),
+                ),
+              ],
+            ),
             Row (
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget> [
