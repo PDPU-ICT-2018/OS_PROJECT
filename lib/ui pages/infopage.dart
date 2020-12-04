@@ -26,7 +26,7 @@ class Info extends StatelessWidget {
     if (pages.title == 'RANDOM PRA') {
       signal = 5;
     }
-    if (pages.title == 'AUTO SELECT') {
+    if (pages.title == 'AUTO SELECT PRA') {
       signal = 6;
     }
   }

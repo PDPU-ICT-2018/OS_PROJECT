@@ -234,7 +234,7 @@ class _OPTIMALState extends State<OPTIMAL> {
             ),
             Padding(
                 padding: EdgeInsets.fromLTRB(8, 8, 8, 20),
-                child : Text('Current Element Is: '+ pages_arr.elementAt(click).toString(), style: GoogleFonts.montserrat(fontSize: 25.0,color: Colors.black))
+                child : Text('Current Element Is: '+ pages_arr.elementAt(click).toString(), style: GoogleFonts.montserrat(fontSize: 25.0,color: Colors.yellow))
             ),
             Padding(
                 padding: EdgeInsets.fromLTRB(8, 8, 8, 50),

@@ -6,7 +6,6 @@ import 'package:os_project/algorithms/lifo.dart';
 import 'package:os_project/algorithms/lru.dart';
 import 'package:os_project/algorithms/optimal.dart';
 import 'package:os_project/algorithms/random.dart';
-import 'dart:math';
 
 final pagesEntryTextBox = TextEditingController();
 final pageCapacityTextBox = TextEditingController();
@@ -248,16 +247,17 @@ class _GetTextFieldValueState extends State<GetTextFieldValue> {
                           a = fifoalgo(pages_arr, pages_arr.length, frame_capacity);
                           b = lifoalgo(pages_arr, pages_arr.length, frame_capacity);
                           c = lrualgo(pages_arr, pages_arr.length, frame_capacity);
-                          e = randomalgo(pages_arr, pages_arr.length, frame_capacity);
-                          var minimumvalue = [a,b,c,e];
-                          minimumvalue.sort();
-                          if(a == minimumvalue.first){
+                          d = randomalgo(pages_arr, pages_arr.length, frame_capacity);
+                          var minvalue = [a,b,c,d];
+                          minvalue.sort();
+                          print(minvalue);
+                          if(a == minvalue.first){
                             Navigator.push(context, MaterialPageRoute(builder: (context) => FIFO()),);
                           }
-                          else if(b == minimumvalue.first){
+                          else if(b == minvalue.first){
                             Navigator.push(context, MaterialPageRoute(builder: (context) => LIFO()),);
                           }
-                          else if(c == minimumvalue.first){
+                          else if(c == minvalue.first){
                               Navigator.push(context, MaterialPageRoute(builder: (context) => LRU()),);
                           }
                           else{
